@@ -1,42 +1,97 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>EduFlash</title>
-    <style>
-      body {
-        font-family: system-ui, Arial;
-        margin: 16px;
-      }
-      .card {
-        max-width: 600px;
-        border: 1px solid #ddd;
-        padding: 16px;
-        border-radius: 8px;
-      }
-      .choices button {
-        display: block;
-        margin: 6px 0;
-        padding: 8px;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>EduFlash</h1>
-    <div class="card">
-      <button id="getQ">Get Question</button>
-      <div id="question" style="margin-top: 12px; font-weight: 600"></div>
-      <div id="choices" class="choices"></div>
-      <div id="result" style="margin-top: 10px; font-weight: 600"></div>
-      <button id="explainBtn" style="display: none; margin-top: 8px">
-        Explain
-      </button>
-      <pre
-        id="explainArea"
-        style="margin-top: 8px; white-space: pre-wrap"
-      ></pre>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduFlash - Interactive Learning Quiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">🎓</div>
+        <h1>EduFlash</h1>
+      </div>
+      <p class="tagline">Test your knowledge across multiple topics!</p>
+    </header>
+
+    <div class="stats-bar">
+      <div class="stat">
+        <div class="stat-label">Score</div>
+        <div class="stat-value" id="scoreDisplay">0</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Rounds</div>
+        <div class="stat-value" id="roundsDisplay">0</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Accuracy</div>
+        <div class="stat-value" id="accuracyDisplay">0%</div>
+      </div>
     </div>
-    <script src="script.js"></script>
-  </body>
+
+    <div class="topic-selector">
+      <label>Choose a topic:</label>
+      <div class="topic-buttons">
+        <button class="topic-btn active" data-topic="general">📚 General</button>
+        <button class="topic-btn" data-topic="math">🔢 Math</button>
+        <button class="topic-btn" data-topic="science">🔬 Science</button>
+      </div>
+    </div>
+
+    <div class="quiz-card">
+      <div class="timer-bar" id="timerBar" style="display: none;">
+        <div class="timer-progress" id="timerProgress"></div>
+      </div>
+
+      <div id="questionSection" style="display: none;">
+        <div class="question-header">
+          <div class="question-number" id="questionNumber">Question #1</div>
+          <div class="question-text" id="questionText"></div>
+        </div>
+
+        <div class="options" id="optionsContainer"></div>
+
+        <div id="resultSection" style="display: none;">
+          <div class="result-message" id="resultMessage"></div>
+          <div class="explanation" id="explanationBox" style="display: none;">
+            <div class="explanation-title">💡 Explanation</div>
+            <div class="explanation-text" id="explanationText"></div>
+          </div>
+          <div class="actions">
+            <button class="btn btn-primary" id="nextBtn">Next Question →</button>
+            <button class="btn btn-secondary" id="finishBtn">Finish Quiz</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="startSection">
+        <p style="text-align: center; color: var(--text-secondary); margin-bottom: 1.5rem;">
+          Select a topic above and click start to begin your learning journey!
+        </p>
+        <button class="btn btn-primary" id="startBtn" style="width: 100%;">
+          🚀 Start Quiz
+        </button>
+      </div>
+    </div>
+
+    <div class="leaderboard">
+      <h2>🏆 Leaderboard</h2>
+      <div class="submit-score" id="submitScoreSection" style="display: none;">
+        <input type="text" id="playerName" placeholder="Enter your name" maxlength="50">
+        <button class="btn btn-primary" id="submitScoreBtn">Submit Score</button>
+      </div>
+      <ul class="leaderboard-list" id="leaderboardList">
+        <li class="empty-state">No scores yet. Be the first!</li>
+      </ul>
+    </div>
+
+    <footer>
+      <p>Made with 💜 for learners everywhere</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>

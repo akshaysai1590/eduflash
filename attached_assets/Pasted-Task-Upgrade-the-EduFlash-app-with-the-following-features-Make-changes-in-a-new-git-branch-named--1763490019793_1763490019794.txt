@@ -1,0 +1,69 @@
+Task: Upgrade the EduFlash app with the following features. Make changes in a new git branch named `feature/fullstack-upgrades`. Commit each logical change with clear messages. Do not push to remote. After changes, list the files created/modified and show the git status.
+
+Project layout:
+- backend/server.js
+- frontend/index.html
+- frontend/script.js
+- frontend/*.css (create if needed)
+- README.md
+
+Features to add (implement with safe defaults and placeholders for API keys):
+
+1) Scoring & Progress
+- Add score tracking in the frontend (session only, use localStorage to persist score and rounds).
+- Add UI elements showing current score and rounds completed.
+- Expose endpoints in backend if helpful (optional) to save progress locally (no DB).
+
+2) Multiple Topics
+- Add a simple topic selector UI (e.g., General, Math, Science).
+- Store separate question banks in `backend/questions/*.json` (one per topic) and modify `/api/question` to accept `?topic=math` (default `general`).
+
+3) AI-based Explanations (safe)
+- Add an `EXPLAIN_PROVIDER` abstraction in backend that:
+  - If env var `HF_KEY` or `OPENAI_KEY` exists, calls the provider with low token limits and returns the result.
+  - If no key present or provider errors, return the canned explanation from the question bank.
+- Ensure **caching**: store generated explanations in an in-memory cache (simple object keyed by `questionId`) for the process lifetime to avoid repeated API calls.
+
+4) Leaderboard scaffold (Firebase-ready)
+- Add a backend endpoint `/api/leaderboard` that accepts `POST { name, score }` to save scores and `GET` to list top scores.
+- Implement the storage as a pluggable module:
+  - Default implementation: in-memory array (non-persistent) and returns top 10.
+  - Add a `services/leaderboard.firebase.js` file that contains instructions and placeholder code to integrate Firebase Realtime DB or Firestore. Do NOT include real credentials — instead, read `FIREBASE_CONFIG` from env or `backend/.env.example`.
+- Add frontend UI to submit name and show top-10 leaderboard using `/api/leaderboard`.
+
+5) Timer for each question
+- Add an optional countdown timer (e.g., 30 seconds) in frontend per question with visible progress bar.
+- When timer expires, auto-mark as wrong and show explanation button.
+
+6) Branding & UI polish
+- Add simple CSS (create `frontend/style.css`) with team/hackathon header, logo placeholder, nicer buttons, and micro-animations for correct/wrong (CSS transitions).
+- Make the app mobile responsive.
+
+7) README & Demo Script
+- Update `README.md` with run, deploy, and env var instructions:
+  - How to run locally (Replit), how to set `HF_KEY` / `OPENAI_KEY` / `FIREBASE_CONFIG`.
+  - How to deploy frontend to Vercel (root=frontend).
+  - Short 1-minute demo script and features list.
+- Add a top-level `docs/` folder containing a 1-paragraph architecture summary and instructions to set up Firebase (copy/paste commands for Firebase CLI).
+
+8) Git workflow & safety
+- Create branch `feature/fullstack-upgrades`.
+- Make commits with descriptive messages for each feature group (e.g., `feat: add topic selector and question banks`, `feat: add scoring & timer`, `chore: add README and docs`).
+- Do NOT commit any secrets. Create `backend/.env.example` listing env vars: `HF_KEY`, `OPENAI_KEY`, `FIREBASE_CONFIG`.
+- After finishing, run `git status` and show a short summary of changes and exact commit hashes.
+
+Testing & quality:
+- Add minimal input validation for endpoints.
+- Ensure CORS remains enabled.
+- Ensure frontend falls back gracefully if backend calls fail.
+- Add console logs for key actions (QA use).
+
+Finally: After making changes, output:
+- `git branch --show-current`
+- `git log -n 5 --oneline --decorate`
+- `git status --porcelain`
+- A short list of modified/created files.
+
+If anything fails or you need me to refine behavior (e.g., specific leaderboard DB), I will iterate.
+
+End of prompt.

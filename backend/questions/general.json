@@ -1,0 +1,37 @@
+[
+  {
+    "id": "gen1",
+    "question": "What is the capital of France?",
+    "options": ["London", "Berlin", "Paris", "Madrid"],
+    "correctAnswer": 2,
+    "explanation": "Paris is the capital and most populous city of France. It has been a major European city for centuries and is known for landmarks like the Eiffel Tower."
+  },
+  {
+    "id": "gen2",
+    "question": "Who wrote 'Romeo and Juliet'?",
+    "options": ["Charles Dickens", "William Shakespeare", "Jane Austen", "Mark Twain"],
+    "correctAnswer": 1,
+    "explanation": "William Shakespeare wrote Romeo and Juliet around 1594-1596. It's one of his most famous tragedies and tells the story of two star-crossed lovers."
+  },
+  {
+    "id": "gen3",
+    "question": "What is the largest ocean on Earth?",
+    "options": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+    "correctAnswer": 3,
+    "explanation": "The Pacific Ocean is the largest and deepest ocean, covering approximately 63 million square miles and containing more than half of the free water on Earth."
+  },
+  {
+    "id": "gen4",
+    "question": "In which year did World War II end?",
+    "options": ["1943", "1944", "1945", "1946"],
+    "correctAnswer": 2,
+    "explanation": "World War II ended in 1945 with the surrender of Germany in May and Japan in September following the atomic bombings of Hiroshima and Nagasaki."
+  },
+  {
+    "id": "gen5",
+    "question": "What is the smallest country in the world?",
+    "options": ["Monaco", "Vatican City", "San Marino", "Liechtenstein"],
+    "correctAnswer": 1,
+    "explanation": "Vatican City is the smallest country in the world, covering just 0.44 square kilometers. It's an independent city-state enclaved within Rome, Italy."
+  }
+]
