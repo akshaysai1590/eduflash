@@ -1,4 +1,4 @@
-const API_BASE = window.location.origin;
+const API_BASE = '';
 
 const TIMER_DURATION = 30;
 const OPTION_LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];

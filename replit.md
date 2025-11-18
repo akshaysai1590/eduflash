@@ -28,6 +28,7 @@ Preferred communication style: Simple, everyday language.
 - localStorage chosen for progress persistence (no backend session management needed)
 - Timer implemented with setInterval for cross-browser compatibility
 - CSS custom properties (variables) for consistent theming
+- **API Configuration**: Uses relative URLs (empty API_BASE) instead of `window.location.origin` to ensure compatibility with Replit's proxy environment
 
 ### Backend Architecture (Node.js/Express)
 
