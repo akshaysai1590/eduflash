@@ -89,12 +89,36 @@ function stopTimer() {
   document.getElementById('timerBar').style.display = 'none';
 }
 
-function handleTimeout() {
+async function handleTimeout() {
   console.log('⏰ Time expired');
   const optionBtns = document.querySelectorAll('.option-btn');
   optionBtns.forEach(btn => btn.disabled = true);
   
-  showResult(false, state.currentQuestion.correctAnswer, 'Time expired! ⏰');
+  try {
+    const response = await fetch(`${API_BASE}/api/check-answer`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        questionId: state.currentQuestion.id,
+        selectedAnswer: -1,
+        topic: state.currentTopic
+      })
+    });
+    
+    if (!response.ok) throw new Error('Failed to check answer');
+    
+    const result = await response.json();
+    showResult(false, result.correctAnswer, null, 'Time expired! ⏰', result.explanation);
+    
+    console.log('✓ Timeout processed with explanation');
+  } catch (error) {
+    console.error('Error processing timeout:', error);
+    alert('Failed to load explanation due to network error. Please check your connection.');
+    document.getElementById('resultSection').style.display = 'block';
+    const resultMessage = document.getElementById('resultMessage');
+    resultMessage.className = 'result-message incorrect';
+    resultMessage.textContent = 'Time expired! ⏰ (Unable to load explanation)';
+  }
 }
 
 async function fetchQuestion() {
@@ -159,7 +183,7 @@ async function handleAnswer(selectedIndex) {
     if (!response.ok) throw new Error('Failed to check answer');
     
     const result = await response.json();
-    showResult(result.correct, result.correctAnswer, null, result.explanation);
+    showResult(result.correct, result.correctAnswer, selectedIndex, null, result.explanation);
     
     if (result.correct) {
       state.score += 10;
@@ -175,14 +199,13 @@ async function handleAnswer(selectedIndex) {
   }
 }
 
-function showResult(isCorrect, correctIndex, customMessage = null, explanation = '') {
+function showResult(isCorrect, correctIndex, selectedIndex = null, customMessage = null, explanation = '') {
   const optionBtns = document.querySelectorAll('.option-btn');
   optionBtns.forEach((btn, index) => {
     if (index === correctIndex) {
       btn.classList.add('correct');
-    } else if (!isCorrect && btn.disabled && !btn.classList.contains('correct')) {
-      const wasClicked = Array.from(optionBtns).indexOf(btn) !== correctIndex;
-      if (wasClicked) btn.classList.add('incorrect');
+    } else if (!isCorrect && selectedIndex !== null && index === selectedIndex) {
+      btn.classList.add('incorrect');
     }
   });
   
