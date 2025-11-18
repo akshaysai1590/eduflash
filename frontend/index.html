@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>EduFlash</title>
+    <style>
+      body {
+        font-family: system-ui, Arial;
+        margin: 16px;
+      }
+      .card {
+        max-width: 600px;
+        border: 1px solid #ddd;
+        padding: 16px;
+        border-radius: 8px;
+      }
+      .choices button {
+        display: block;
+        margin: 6px 0;
+        padding: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>EduFlash</h1>
+    <div class="card">
+      <button id="getQ">Get Question</button>
+      <div id="question" style="margin-top: 12px; font-weight: 600"></div>
+      <div id="choices" class="choices"></div>
+      <div id="result" style="margin-top: 10px; font-weight: 600"></div>
+      <button id="explainBtn" style="display: none; margin-top: 8px">
+        Explain
+      </button>
+      <pre
+        id="explainArea"
+        style="margin-top: 8px; white-space: pre-wrap"
+      ></pre>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
