@@ -1,0 +1,37 @@
+[
+  {
+    "id": "math1",
+    "question": "What is 15 × 12?",
+    "options": ["160", "170", "180", "190"],
+    "correctAnswer": 2,
+    "explanation": "15 × 12 = 180. You can break this down as (15 × 10) + (15 × 2) = 150 + 30 = 180."
+  },
+  {
+    "id": "math2",
+    "question": "What is the value of π (pi) rounded to 2 decimal places?",
+    "options": ["3.12", "3.14", "3.16", "3.18"],
+    "correctAnswer": 1,
+    "explanation": "Pi (π) is approximately 3.14159... When rounded to two decimal places, it becomes 3.14. Pi represents the ratio of a circle's circumference to its diameter."
+  },
+  {
+    "id": "math3",
+    "question": "What is the square root of 144?",
+    "options": ["10", "11", "12", "13"],
+    "correctAnswer": 2,
+    "explanation": "The square root of 144 is 12 because 12 × 12 = 144. This is a perfect square."
+  },
+  {
+    "id": "math4",
+    "question": "If a triangle has angles of 60°, 60°, and 60°, what type of triangle is it?",
+    "options": ["Scalene", "Isosceles", "Equilateral", "Right"],
+    "correctAnswer": 2,
+    "explanation": "An equilateral triangle has all three angles equal to 60° and all three sides equal in length. The sum of angles in any triangle is always 180°."
+  },
+  {
+    "id": "math5",
+    "question": "What is 2⁴ (2 to the power of 4)?",
+    "options": ["8", "12", "16", "20"],
+    "correctAnswer": 2,
+    "explanation": "2⁴ means 2 × 2 × 2 × 2 = 16. This is called exponential notation where 4 is the exponent."
+  }
+]

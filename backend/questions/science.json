@@ -1,0 +1,37 @@
+[
+  {
+    "id": "sci1",
+    "question": "What is the chemical symbol for gold?",
+    "options": ["Go", "Gd", "Au", "Ag"],
+    "correctAnswer": 2,
+    "explanation": "The chemical symbol for gold is Au, derived from the Latin word 'aurum' meaning gold. Gold is element number 79 on the periodic table."
+  },
+  {
+    "id": "sci2",
+    "question": "How many planets are in our solar system?",
+    "options": ["7", "8", "9", "10"],
+    "correctAnswer": 1,
+    "explanation": "There are 8 planets in our solar system: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune. Pluto was reclassified as a dwarf planet in 2006."
+  },
+  {
+    "id": "sci3",
+    "question": "What is the powerhouse of the cell?",
+    "options": ["Nucleus", "Ribosome", "Mitochondria", "Chloroplast"],
+    "correctAnswer": 2,
+    "explanation": "Mitochondria are known as the powerhouse of the cell because they generate most of the cell's supply of ATP (adenosine triphosphate), which is used as a source of chemical energy."
+  },
+  {
+    "id": "sci4",
+    "question": "What is the speed of light in a vacuum?",
+    "options": ["299,792 km/s", "199,792 km/s", "399,792 km/s", "99,792 km/s"],
+    "correctAnswer": 0,
+    "explanation": "The speed of light in a vacuum is approximately 299,792 kilometers per second (or about 186,282 miles per second). This is a fundamental constant in physics, denoted by 'c'."
+  },
+  {
+    "id": "sci5",
+    "question": "What gas do plants absorb from the atmosphere during photosynthesis?",
+    "options": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
+    "correctAnswer": 2,
+    "explanation": "Plants absorb carbon dioxide (CO₂) from the atmosphere during photosynthesis. They use sunlight to convert CO₂ and water into glucose and oxygen, which is released as a byproduct."
+  }
+]
